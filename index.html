@@ -999,7 +999,7 @@
 
         map.addSource('parking_new_source', {
           'type': 'geojson',
-          'data': './json/parking_new.geojson'
+          'data': 'json/parking_new.geojson'
         });
         map.addLayer(
           {
@@ -1171,7 +1171,7 @@
               if (layer.id == "pre-planning")
                 return fillColor;
               var fillPaint = layer.paint;
-              if ("fill-color" in fillPaint) {
+              if (fillPaint != undefined && "fill-color" in fillPaint) {
                 fillColor = fillPaint["fill-color"];
               }
               else if ("fill-outline-color" in fillPaint) {
