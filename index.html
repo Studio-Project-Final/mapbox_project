@@ -1572,7 +1572,7 @@
           map.on('click', layers[i], (e) => {
             console.log(e.features[0].layer['id']);
             var prop = e.features[0].properties["name"];
-            console.log(prop);
+            console.log(e.features[0].properties);
             if (prop in formIdx) {
               if (e.features[0].layer['id'] == 'sleeping-corners') {
                 updateTextDiv(forms[formIdx[prop]], e.features[0].properties);
