@@ -1173,11 +1173,13 @@
               if (layer.id == "pre-planning")
                 return fillColor;
               var fillPaint = layer.paint;
-              if (fillPaint != undefined && "fill-color" in fillPaint) {
-                fillColor = fillPaint["fill-color"];
-              }
-              else if ("fill-outline-color" in fillPaint) {
-                fillColor = fillPaint["fill-outline-color"];
+              if (fillPaint != undefined) {
+                if ("fill-color" in fillPaint) {
+                  fillColor = fillPaint["fill-color"];
+                }
+                else if ("fill-outline-color" in fillPaint) {
+                  fillColor = fillPaint["fill-outline-color"];
+                }
               }
               if (Array.isArray(fillColor))
                 return fillColor[6];
