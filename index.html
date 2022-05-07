@@ -997,8 +997,23 @@
         // make a pointer cursor
         map.getCanvas().style.cursor = 'default';
 
-        // make a pointer cursor
-        map.getCanvas().style.cursor = 'default';
+        map.addSource('parking_new_source', {
+          'type': 'geojson',
+          'data': './json/parking_new.geojson'
+        });
+        map.addLayer(
+          {
+            'id': 'parking_new',
+            'type': 'fill',
+            'source': 'parking_new_source',
+            'layout': {},
+            'paint': {
+              'fill-color': '#2ec1e5',
+              'fill-opacity': 0.4
+            }
+          },
+          'parking'
+        );
 
         map.flyTo({
           // These options control the ending camera position: centered at
@@ -1200,6 +1215,7 @@
           'front-yard': 'חצר קדמית',
           'back-yard': 'חצר אחורית',
           'parking': 'חניונים',
+          'parking_new': 'חניונים חדש',
           'business': 'חנויות',
           'light-rail': 'תוואי הרכבת הקלה',
           '3D': '3D',
